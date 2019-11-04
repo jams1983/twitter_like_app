@@ -1,0 +1,10 @@
+<div class="d-flex w-100 justify-content-between">
+  <h6 class="mb-1"><%= link_to tweet.user.username, user_path(tweet.user) %></h6>
+  <small><%= tweet.created_at.strftime('%x') %></small>
+</div>
+<p class="mb-1"><%= tweet.body%></p>
+<small>
+  <% if tweet.user == current_user %>
+    <%= link_to 'delete', tweet_path(tweet), method: :delete %>
+  <% end %>
+</small>
